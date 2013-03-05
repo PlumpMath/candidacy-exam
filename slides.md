@@ -5,13 +5,13 @@
 Expertise
 ---------
 
-Expertise is important for efficient computation 
+Domain knowledge is important for efficient computation 
 
 
 Expertise
 ---------
 
-Most scientific programmers aren't expert in all requisite disciplines 
+Most scientific programmers aren't experts in all requisite domains 
 
 
 Expertise
@@ -20,7 +20,7 @@ Expertise
 ~~~~~~~~~C
 // A: Naive             // B: Programmer    // C: Mathematician
 int fact(int n){        int fact(int n){    int fact(int n){
-    if (n == 0)             prod = n;           // n! = Gamma(n+1)   
+    if (n == 0)             int prod = n;       // n! = Gamma(n+1)   
         return 1;           while(n--)          return lround(exp(lgamma(n+1)));
     return n*fact(n-1);         prod *= n;  }
 }                           return prod;
@@ -146,11 +146,9 @@ $$ \sum_{i=1}^{n} \frac{a \left(\lambda - 1\right) + b \lambda - \lambda \left(\
 Bayesian Inference
 ----------------
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.4\textwidth]{images/pymc_ecosystem}
-\end{figure}
+PyMC:
 
+SymPy + RV $\rightarrow$ Theano (array computations) $\rightarrow$ C + CUDA
 
 How do we solve math problems?
 -------------------
@@ -195,6 +193,8 @@ How do we solve math problems?
 ~~~~~~~~~
 
 $$ \frac{1}{2} e^{- \frac{1}{2} z} $$ 
+
+This is a Chi squared distribution with two degrees of freedom
 
 Phenomenological relations:
 
@@ -280,11 +280,17 @@ Status and Evaluation
 Related Work
 ------------
 
-Symbolic Statistics - APPL
-
-Markov chain Monte Carlo - PyMC, WinBUGS, JAGS
-
-Term Rewrite Systems - Elan, Maude, Mathematica, Stratego/XT, Coq
+*   Symbolic Statistics 
+    *   L. Leemis, GD Evans, *APPL: A Probability Programming Language*
+    *   M. Erwig and S. Kollmansberger  *Probabilistic Functional Programming in Haskell*, 2006
+*   Markov chain Monte Carlo
+    *   WinBUGS
+    *   JAGS
+    *   PyMC
+*   Term Rewrite Systems - Elan, Maude, Mathematica, Stratego/XT, Coq
+*   Term Rewrite Systems (CAS)
+    *   RUBI -  AD Rich, DJ Jeffrey *A Knowledge Repository for Indefinite Integration Based on Transformation Rules*
+    *   H. Fu, X. Zhong, Z. Zeng, *Automated and Readable Simplification of Trigonometric Expressions*
 
 
 Numerical Linear Algebra
@@ -554,15 +560,19 @@ $$ L_{22} := \operatorname{cholesky}(A_{22} - L_{21}L_{21}^{T}) $$
 
 Compute Resources:
 
-E.g. Four node system with two GPUs on Infiniband
+E.g. Four node system with two GPUs on specific network hardware
 
 
 Related work
 ------------
 
+*   Performance Modeling
+    *   E Peise and P Bientinesi. *Performance Modeling for Dense Linear Algebra.* 2012
+    *   Roman Iakymchuk. *Performance Modeling and Prediction for Linear Algebra Algorithms* 2012
+    *   JJ Dongarra, RA Vandegeijn, and DW Walker. *Scalability issues affecting the design of a dense linear algebra library* 1994
 *   Heterogeneous Static Scheduling
-    *   Integer Programming - Tompkins 2003
-    *   Heterogeneous Earliest Finish Time - Topcuoglu 2002 
+    *   M. Tompkins. *Optimization Techniques for Task Allocation and Scheduling in Distributed Multi-Agent Operations.* 2003
+    *   H. Topcuoglu, S. Hariri, M. Wu. *Performance-effective and low-complexity task scheduling for heterogeneous computing.* 2002
     *   Suggestions?
 *   Automated Dense Linear Algebra
     *   ScaLAPACK, PlaLAPACK, BLACS
@@ -577,26 +587,87 @@ Related work
 Status and Evaluation
 ---------------------
 
-*   Software 
+*   Have done - Software 
     *   Implemented Schedulers
-    *   Implemented rudimentary model
+    *   Implemented rudimentary cost model
     *   Everything hooks up well
-*   Comparison
-    *   Scheduling time
-    *   Execution
-    *   Comparison against Magma?
+
+*   Will do - Compare existing schedulers with 
+    *   Schedulers:  IP, Heuristic, Naive dynamic scheduling
+    *   Variety of block / problem sizes
+    *   Variety of desired algorithms
+    *   Variety of timing models
+    *   Compare scheduling times vs execution times 
+
+*   Could do - 
+    *   Implement direct cost model (run and profile each task)
+    *   Comparison against FLAME/Magma
 
 
-Recap
-=====
+DAG Ordering
+------------
 
-What will I do?
----------------
+Recv and Send return control immediately.  
 
-*   Solve a specific numerical problem 
-    *   Distributed Blocked Linear Algebra
-*   Without writing anything by hand
-*   Keeping mathematical and algorithmic code separate
+RecvWait and SendWait block until communication terminates.
+
+A, B, C, D are computation tasks
+
+![](images/mpi-po.pdf)
+
+    Order 1: R1 RW1 R2 RW2 A B C D S1 SW1
+
+    Order 2: R2 R1 RW2 B S1 RW1 A C D SW1
+
+
+DAG Ordering
+------------
+
+![](images/mpi-po.pdf)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.5\textwidth]{images/comp-comm}
+\end{figure}
+
+
+DAG Ordering
+------------
+
+
+~~~~~~~~~~~ Python
+def dependence(a, b):
+    if depends((a, b)): return  1
+    if depends((b, a)): return -1
+    return 0
+~~~~~~~~~~~ 
+
+~~~~~~~~~~Python
+def mpi_send_wait_key(a):
+    """ Wait as long as possible on Waits, Start Send/Recvs early """
+    if isinstance(a.op, (MPIRecvWait, MPISendWait)):       return 1
+    if isinstance(a.op, (MPIRecv, MPISend)):               return -1
+    return 0
+~~~~~~~~~~~ 
+
+~~~~~~~~~~ Python
+def mpi_tag_key(a):
+    """ Break MPI ties by using the variable tag - prefer lower tags first """
+    if isinstance(a.op, (MPISend, MPIRecv, MPIRecvWait, MPISendWait)):
+        return a.op.tag
+    return 0
+~~~~~~~~~~
+
+Thank You
+---------
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.28\textwidth]{images/kalman_cpu1}
+\includegraphics[width=.28\textwidth]{images/kalman_cpu0}
+\end{figure}
+
+Slides: [http://github.com/mrocklin/candidacy-exam/](http://github.com/mrocklin/candidacy-exam/)
 
 
 Extras
