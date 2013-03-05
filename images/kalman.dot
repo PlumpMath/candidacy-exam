@@ -1,0 +1,49 @@
+digraph{
+	rankdir=TD
+	"[H'*(H*Sigma*H' + R)^-1*H, Sigma] -> SYMM -> [H'*(H*Sigma*H' + R)^-1*H*Sigma]" [shape=box, label=SYMM]
+	"[H*Sigma*H' + R, (-1)*data + H*mu] -> POSV -> [(H*Sigma*H' + R)^-1*((-1)*data + H*mu), INFO]" [shape=box, label=POSV]
+	"[H*Sigma*H' + R, H] -> POSV -> [(H*Sigma*H' + R)^-1*H, INFO]" [shape=box, label=POSV]
+	"[H, (H*Sigma*H' + R)^-1*((-1)*data + H*mu)] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)]" [shape=box, label=GEMM]
+	"[H, (H*Sigma*H' + R)^-1*H] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*H]" [shape=box, label=GEMM]
+	"[H, Sigma*H', R] -> GEMM -> [H*Sigma*H' + R]" [shape=box, label=GEMM]
+	"[H, mu, data] -> GEMM -> [(-1)*data + H*mu]" [shape=box, label=GEMM]
+	"[Sigma, H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu), mu] -> SYMM -> [Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu]" [shape=box, label=SYMM]
+	"[Sigma, H'*(H*Sigma*H' + R)^-1*H*Sigma] -> SYMM -> [(-1)*Sigma*H'*(H*Sigma*H' + R)^-1*H*Sigma + Sigma]" [shape=box, label=SYMM]
+	"[Sigma, H] -> SYMM -> [Sigma*H']" [shape=box, label=SYMM]
+
+	"H'*(H*Sigma*H' + R)^-1*H" -> "[H'*(H*Sigma*H' + R)^-1*H, Sigma] -> SYMM -> [H'*(H*Sigma*H' + R)^-1*H*Sigma]"
+	"Sigma" -> "[H'*(H*Sigma*H' + R)^-1*H, Sigma] -> SYMM -> [H'*(H*Sigma*H' + R)^-1*H*Sigma]"
+	"[H'*(H*Sigma*H' + R)^-1*H, Sigma] -> SYMM -> [H'*(H*Sigma*H' + R)^-1*H*Sigma]" -> "H'*(H*Sigma*H' + R)^-1*H*Sigma"
+	"H*Sigma*H' + R" -> "[H*Sigma*H' + R, (-1)*data + H*mu] -> POSV -> [(H*Sigma*H' + R)^-1*((-1)*data + H*mu), INFO]"
+	"(-1)*data + H*mu" -> "[H*Sigma*H' + R, (-1)*data + H*mu] -> POSV -> [(H*Sigma*H' + R)^-1*((-1)*data + H*mu), INFO]"
+	"[H*Sigma*H' + R, (-1)*data + H*mu] -> POSV -> [(H*Sigma*H' + R)^-1*((-1)*data + H*mu), INFO]" -> "(H*Sigma*H' + R)^-1*((-1)*data + H*mu)"
+	"[H*Sigma*H' + R, (-1)*data + H*mu] -> POSV -> [(H*Sigma*H' + R)^-1*((-1)*data + H*mu), INFO]" -> "INFO"
+	"H*Sigma*H' + R" -> "[H*Sigma*H' + R, H] -> POSV -> [(H*Sigma*H' + R)^-1*H, INFO]"
+	"H" -> "[H*Sigma*H' + R, H] -> POSV -> [(H*Sigma*H' + R)^-1*H, INFO]"
+	"[H*Sigma*H' + R, H] -> POSV -> [(H*Sigma*H' + R)^-1*H, INFO]" -> "(H*Sigma*H' + R)^-1*H"
+	"[H*Sigma*H' + R, H] -> POSV -> [(H*Sigma*H' + R)^-1*H, INFO]" -> "INFO"
+	"H" -> "[H, (H*Sigma*H' + R)^-1*((-1)*data + H*mu)] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)]"
+	"(H*Sigma*H' + R)^-1*((-1)*data + H*mu)" -> "[H, (H*Sigma*H' + R)^-1*((-1)*data + H*mu)] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)]"
+	"[H, (H*Sigma*H' + R)^-1*((-1)*data + H*mu)] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)]" -> "H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)"
+	"H" -> "[H, (H*Sigma*H' + R)^-1*H] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*H]"
+	"(H*Sigma*H' + R)^-1*H" -> "[H, (H*Sigma*H' + R)^-1*H] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*H]"
+	"[H, (H*Sigma*H' + R)^-1*H] -> GEMM -> [H'*(H*Sigma*H' + R)^-1*H]" -> "H'*(H*Sigma*H' + R)^-1*H"
+	"H" -> "[H, Sigma*H', R] -> GEMM -> [H*Sigma*H' + R]"
+	"Sigma*H'" -> "[H, Sigma*H', R] -> GEMM -> [H*Sigma*H' + R]"
+	"R" -> "[H, Sigma*H', R] -> GEMM -> [H*Sigma*H' + R]"
+	"[H, Sigma*H', R] -> GEMM -> [H*Sigma*H' + R]" -> "H*Sigma*H' + R"
+	"H" -> "[H, mu, data] -> GEMM -> [(-1)*data + H*mu]"
+	"mu" -> "[H, mu, data] -> GEMM -> [(-1)*data + H*mu]"
+	"data" -> "[H, mu, data] -> GEMM -> [(-1)*data + H*mu]"
+	"[H, mu, data] -> GEMM -> [(-1)*data + H*mu]" -> "(-1)*data + H*mu"
+	"Sigma" -> "[Sigma, H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu), mu] -> SYMM -> [Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu]"
+	"H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu)" -> "[Sigma, H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu), mu] -> SYMM -> [Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu]"
+	"mu" -> "[Sigma, H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu), mu] -> SYMM -> [Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu]"
+	"[Sigma, H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu), mu] -> SYMM -> [Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu]" -> "Sigma*H'*(H*Sigma*H' + R)^-1*((-1)*data + H*mu) + mu"
+	"Sigma" -> "[Sigma, H'*(H*Sigma*H' + R)^-1*H*Sigma] -> SYMM -> [(-1)*Sigma*H'*(H*Sigma*H' + R)^-1*H*Sigma + Sigma]"
+	"H'*(H*Sigma*H' + R)^-1*H*Sigma" -> "[Sigma, H'*(H*Sigma*H' + R)^-1*H*Sigma] -> SYMM -> [(-1)*Sigma*H'*(H*Sigma*H' + R)^-1*H*Sigma + Sigma]"
+	"[Sigma, H'*(H*Sigma*H' + R)^-1*H*Sigma] -> SYMM -> [(-1)*Sigma*H'*(H*Sigma*H' + R)^-1*H*Sigma + Sigma]" -> "(-1)*Sigma*H'*(H*Sigma*H' + R)^-1*H*Sigma + Sigma"
+	"Sigma" -> "[Sigma, H] -> SYMM -> [Sigma*H']"
+	"H" -> "[Sigma, H] -> SYMM -> [Sigma*H']"
+	"[Sigma, H] -> SYMM -> [Sigma*H']" -> "Sigma*H'"
+}

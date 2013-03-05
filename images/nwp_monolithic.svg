@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="606.50244"
+   height="420.52414"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="nwp_monolithic.pdf">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="217.47552"
+     inkscape:cy="196.17876"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="876"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2987"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       originx="-34.738264px"
+       originy="-467.71023px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.738264,-164.12781)">
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.6;fill:#ffffff;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path2985"
+       sodipodi:cx="381.07144"
+       sodipodi:cy="394.14789"
+       sodipodi:rx="185.35715"
+       sodipodi:ry="185.35715"
+       d="m 566.42859,394.14789 c 0,102.36992 -82.98722,185.35715 -185.35715,185.35715 -102.36992,0 -185.35715,-82.98723 -185.35715,-185.35715 0,-102.36993 82.98723,-185.35715 185.35715,-185.35715 102.36993,0 185.35715,82.98722 185.35715,185.35715 z" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="339.02945"
+       y="275.55487"
+       id="text2991"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2993"
+         x="341.57632"
+         y="275.55487"
+         style="font-size:16px;text-align:center;text-anchor:middle">Meteorological </tspan><tspan
+         sodipodi:role="line"
+         x="339.02945"
+         y="295.55487"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995">Science</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="280"
+       y="352.36218"
+       id="text2991-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="280"
+         y="352.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-2">PDEs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="310"
+       y="452.36218"
+       id="text2991-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="310"
+         y="452.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-4">Distributed Memory</tspan><tspan
+         sodipodi:role="line"
+         x="310"
+         y="472.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan3161">Scheduling</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="390"
+       y="392.36218"
+       id="text2991-27"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="390"
+         y="392.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-3">Finite Elements</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="126.42857"
+       y="331.64789"
+       id="text2991-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="126.42857"
+         y="331.64789"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-5">Uncertainty</tspan><tspan
+         sodipodi:role="line"
+         x="126.42857"
+         y="351.64789"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan3077">Quantification</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="470"
+       y="492.36218"
+       id="text2991-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="470"
+         y="492.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-47">GPGPU</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="360"
+       y="512.36218"
+       id="text2991-5-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="360"
+         y="512.36218"
+         style="font-size:16px;text-align:center;text-anchor:middle"
+         id="tspan2995-47-2">HP C/Fortran</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Latin Modern;-inkscape-font-specification:Latin Modern"
+       x="200"
+       y="182.36218"
+       id="text3100"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3102"
+         x="200"
+         y="182.36218"
+         style="font-size:24px">Numerical Weather Prediction</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.6;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path3003"
+       sodipodi:cx="-90"
+       sodipodi:cy="125.91294"
+       sodipodi:rx="72.85714"
+       sodipodi:ry="40.714287"
+       d="m -17.14286,125.91294 c 0,22.48588 -32.619253,40.71429 -72.85714,40.71429 -40.23789,0 -72.85714,-18.22841 -72.85714,-40.71429 0,-22.48588 32.61925,-40.714286 72.85714,-40.714286 40.237887,0 72.85714,18.228406 72.85714,40.714286 z"
+       transform="translate(215.17858,211.27066)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.6;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path3773"
+       sodipodi:cx="105.71429"
+       sodipodi:cy="241.98438"
+       sodipodi:rx="295"
+       sodipodi:ry="224.64285"
+       d="m 400.71429,241.98437 c 0,124.06683 -132.076,224.64286 -295,224.64286 -162.924004,0 -295,-100.57603 -295,-224.64285 0,-124.06683 132.075996,-224.642858 295,-224.642858 162.924,0 295,100.576028 295,224.642848 z"
+       transform="matrix(1.0247716,0,0,0.868882,229.6565,178.26435)" />
+  </g>
+</svg>

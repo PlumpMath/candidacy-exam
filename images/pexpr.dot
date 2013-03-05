@@ -1,0 +1,35 @@
+digraph{
+
+# Graph style
+"rankdir"="TD"
+
+#########
+# Nodes #
+#########
+
+"One()" ["color"="black", "label"="1", "shape"="ellipse"];
+"Zero()" ["color"="black", "label"="0", "shape"="ellipse"];
+"Symbol(x)" ["color"="black", "label"="x", "shape"="ellipse"];
+"Integer(3)" ["color"="black", "label"="3", "shape"="ellipse"];
+"Integer(2)" ["color"="black", "label"="2", "shape"="ellipse"];
+"log(Integer(3))" ["color"="black", "label"="log", "shape"="ellipse"];
+"NormalDistribution(Zero(), One())" ["color"="blue", "label"="NormalDistribution", "shape"="ellipse"];
+"ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One()))" ["color"="blue", "label"="ProbabilitySpace", "shape"="ellipse"];
+"RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x))" ["color"="black", "label"="RandomSymbol", "shape"="ellipse"];
+"Add(Integer(2), log(Integer(3)), RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x)))" ["color"="black", "label"="Add", "shape"="ellipse"];
+
+#########
+# Edges #
+#########
+
+"log(Integer(3))" -> "Integer(3)";
+"NormalDistribution(Zero(), One())" -> "One()";
+"NormalDistribution(Zero(), One())" -> "Zero()";
+"ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One()))" -> "Symbol(x)";
+"ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One()))" -> "NormalDistribution(Zero(), One())";
+"RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x))" -> "Symbol(x)";
+"Add(Integer(2), log(Integer(3)), RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x)))" -> "Integer(2)";
+"Add(Integer(2), log(Integer(3)), RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x)))" -> "log(Integer(3))";
+"RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x))" -> "ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One()))";
+"Add(Integer(2), log(Integer(3)), RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x)))" -> "RandomSymbol(ProbabilitySpace(Symbol(x), NormalDistribution(Zero(), One())), Symbol(x))";
+}
