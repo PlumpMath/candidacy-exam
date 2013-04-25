@@ -365,7 +365,7 @@ Necessary Definitions
         outputs   = [alpha*A*B + beta*C]
         condition = symmetric(A) or symmetric(B)
         inplace   = {0: 4} # 0th output stored in 4th input
-        template  = ....
+        fortran   = ....
 
 
 Mathematical code
@@ -373,6 +373,7 @@ Mathematical code
 
 Original language definition in Maude 
 
+    ...
     eq A (B + C) = (A B) + (A C) .
     eq (alpha A)' = alpha A' .
     eq A'' = A .
@@ -463,10 +464,6 @@ Multiple Results
 \includegraphics<2>[width=.53\textwidth]{images/hat_gesv3}
 \end{figure}
 
-Status and Evaluation
----------------------
-
-
 
 Static Scheduling
 =================
@@ -537,32 +534,6 @@ variable, source, target $\rightarrow$ time
 Set of computation subgraphs to minimize total runtime
 
 
-Application - Blocked Cholesky Decomposition
---------------------------------------------
-
-Math Problem:
-
-$$ Ax = y \;\; \rightarrow  \;\; LL^Tx = y \;\; \rightarrow \;\; x = L^{-T}L^{-1}y $$
-$$A \textrm{ symmetric positive definite, } L \textrm{ lower triangular}$$
-
-$$\left[\begin{smallmatrix}A_{11} & A_{21}^T \\
-                           A_{21} & A_{22} \end{smallmatrix}\right]
-= 
-\left[\begin{smallmatrix}L_{11} & 0 \\
-                         L_{21} & L_{22} \end{smallmatrix}\right] 
-\left[\begin{smallmatrix}L_{11} & 0 \\
-                         L_{21} & L_{22} \end{smallmatrix}\right]^T$$
-
-$$ L_{11} := \operatorname{cholesky}(A_{11}) $$
-$$ L_{21} := A_{21}L_{11}^{-T} $$
-$$ L_{22} := \operatorname{cholesky}(A_{22} - L_{21}L_{21}^{T}) $$
-
-
-Compute Resources:
-
-E.g. Four node system with two GPUs on specific network hardware
-
-
 Related work
 ------------
 
@@ -584,6 +555,27 @@ Related work
         internal computation language
 
 
+Application - Blocked Cholesky Decomposition
+--------------------------------------------
+
+Math Problem:
+
+$$ Ax = y \;\; \rightarrow  \;\; LL^Tx = y \;\; \rightarrow \;\; x = L^{-T}L^{-1}y $$
+$$A \textrm{ symmetric positive definite, } L \textrm{ lower triangular}$$
+
+$$\left[\begin{smallmatrix}A_{11} & A_{21}^T \\
+                           A_{21} & A_{22} \end{smallmatrix}\right]
+= 
+\left[\begin{smallmatrix}L_{11} & 0 \\
+                         L_{21} & L_{22} \end{smallmatrix}\right] 
+\left[\begin{smallmatrix}L_{11} & 0 \\
+                         L_{21} & L_{22} \end{smallmatrix}\right]^T$$
+
+$$ L_{11} := \operatorname{cholesky}(A_{11}) $$
+$$ L_{21} := A_{21}L_{11}^{-T} $$
+$$ L_{22} := \operatorname{cholesky}(A_{22} - L_{21}L_{21}^{T}) $$
+
+
 Status and Evaluation
 ---------------------
 
@@ -597,6 +589,7 @@ Status and Evaluation
     *   Variety of block / problem sizes
     *   Variety of desired algorithms
     *   Variety of timing models
+    *   Under uncertain conditions
     *   Compare scheduling times vs execution times 
 
 *   Could do - 
