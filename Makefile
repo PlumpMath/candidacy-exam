@@ -6,4 +6,4 @@ pdf: slides.tex
 	pdflatex slides.tex
 
 publish: pdf
-	scp slides.pdf ankaa.cs.uchicago.edu:/home/mrocklin/html/tempspace/cand-exam-slides.pdf
+	scp slides.pdf ankaa.cs.uchicago.edu:/home/mrocklin/html/storage/cand-exam-slides.pdf
